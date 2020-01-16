@@ -6,9 +6,9 @@
 
 *****欢迎大家指出错误和提交自己的分支代码*****
 
-platform-common: 一般公共类，一般公共方法
-platform-core: 核心公共接口，核心模型
-platform-db:通用数据库操作类
-platform-cache: 通用缓存操作
-platform-auth: 权限共享元素
+platform-common: 一般公共类，一般公共方法  
+platform-core: 核心公共接口，核心模型  
+platform-db:通用数据库操作类  
+platform-cache: 通用缓存操作  
+platform-auth: 权限共享元素  
  
