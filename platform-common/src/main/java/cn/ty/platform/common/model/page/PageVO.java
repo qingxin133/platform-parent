@@ -7,7 +7,7 @@ import java.util.List;
 import com.github.pagehelper.Page;
 
 import cn.ty.platform.common.exception.PlatformException;
-import cn.ty.platform.common.model.msg.ResultStatusBase;
+import cn.ty.platform.common.exception.status.BaseStatusCode;
 
 /**
  * 分页基础实体
@@ -67,7 +67,7 @@ public class PageVO<T> implements Serializable {
 		if(list instanceof Page) {
 			Page pageHelp = (Page) list;
 			if(pageHelp.getPages() != 0 && this.getPage() > pageHelp.getPages()) {
-				throw new PlatformException(ResultStatusBase.PAGE_ERROR);
+				throw new PlatformException(BaseStatusCode.PAGE_ERROR);
 			}
 			
 			this.setPage(pageHelp.getPageNum()>0?pageHelp.getPageNum():1);

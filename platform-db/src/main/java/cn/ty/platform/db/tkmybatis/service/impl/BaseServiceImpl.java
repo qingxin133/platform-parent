@@ -11,7 +11,7 @@ import cn.ty.platform.common.annotation.ColumnOrder;
 import cn.ty.platform.common.constant.PlatformConstantBase;
 import cn.ty.platform.common.constant.exception.PlatformExceptionConstant;
 import cn.ty.platform.common.exception.PlatformException;
-import cn.ty.platform.common.model.msg.ResultStatusBase;
+import cn.ty.platform.common.exception.status.BaseStatusCode;
 import cn.ty.platform.common.model.page.PageVO;
 import cn.ty.platform.db.tkmybatis.mapper.MyBaseMapper;
 import cn.ty.platform.db.tkmybatis.service.IBaseService;
@@ -42,7 +42,7 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
 	protected Class<?> getEntityClass() {
 		Class<?> clazz = (Class<?>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 		if (null == clazz) {
-			throw new PlatformException(ResultStatusBase.DB_ERROR_IMP_ENTITY);
+			throw new PlatformException(BaseStatusCode.DB_ERROR_IMP_ENTITY);
 		}
 		return clazz;
 	}
@@ -83,7 +83,7 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
 			throws IllegalAccessException, IllegalAccessException {
 		Field[] fs = vClass.getDeclaredFields();
 		if (fs == null)
-			throw new PlatformException(ResultStatusBase.ERROR);
+			throw new PlatformException(BaseStatusCode.ERROR);
 		for (Field f : fs) {
 			f.setAccessible(Boolean.TRUE);
 			if (f.isAnnotationPresent(javax.persistence.Column.class)) {
@@ -111,7 +111,7 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
 			throws IllegalAccessException, IllegalAccessException {
 		Field[] fs = vClass.getDeclaredFields();
 		if (fs == null)
-			throw new PlatformException(ResultStatusBase.ERROR);
+			throw new PlatformException(BaseStatusCode.ERROR);
 		for (Field f : fs) {
 			f.setAccessible(Boolean.TRUE);
 			String name = f.getName();

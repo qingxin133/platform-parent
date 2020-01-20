@@ -1,6 +1,6 @@
 package cn.ty.platform.common.exception;
 
-import cn.ty.platform.common.model.msg.ResultStatusBase;
+import cn.ty.platform.common.exception.status.BaseStatusCode;
 
 /**
  *  服务端自定义异常
@@ -12,12 +12,12 @@ public class PlatformException extends RuntimeException {
 
 	private static final long serialVersionUID = -2265191172953377405L;
 
-	public static final String msg = ResultStatusBase.ERROR.getMsg();
+	public static final String msg = BaseStatusCode.ERROR.getMsg();
 
-	protected int code = ResultStatusBase.ERROR.getCode();
+	protected int code = BaseStatusCode.ERROR.getCode();
 
 	public PlatformException() {
-		super(ResultStatusBase.ERROR.getMsg());
+		super(BaseStatusCode.ERROR.getMsg());
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class PlatformException extends RuntimeException {
 	 * 
 	 * @param status
 	 */
-	public PlatformException(ResultStatusBase status) {
+	public PlatformException(PlatformStatusCode status) {
 		super(status.getMsg());
 		this.code = status.getCode();
 	}
@@ -35,7 +35,7 @@ public class PlatformException extends RuntimeException {
 	 * 
 	 * @param status
 	 */
-	public PlatformException(ResultStatusBase status,Throwable cause) {
+	public PlatformException(BaseStatusCode status, Throwable cause) {
 		super(status.getMsg(),cause);
 		this.code = status.getCode();
 	}
@@ -49,7 +49,13 @@ public class PlatformException extends RuntimeException {
 		super(msg);
 		this.code = code;
 	}
-	
+
+	/**
+	 * 传基本类型和抛出的原始异常
+	 * @param code
+	 * @param msg
+	 * @param cause
+	 */
 	public PlatformException(int code, String msg,Throwable cause) {
 		super(msg,cause);
 		this.code = code;

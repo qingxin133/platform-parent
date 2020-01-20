@@ -1,5 +1,7 @@
 package cn.ty.platform.common.model.msg;
 
+import cn.ty.platform.common.exception.status.BaseStatusCode;
+
 import java.io.Serializable;
 
 public class ResultMsg<T> implements Serializable {
@@ -8,12 +10,12 @@ public class ResultMsg<T> implements Serializable {
 	
 	public ResultMsg() {}
 	
-	public ResultMsg(ResultStatusBase status) {
+	public ResultMsg(BaseStatusCode status) {
 		this.code = status.getCode();
 		this.msg = status.getMsg();
 	}
 	
-	public ResultMsg(ResultStatusBase status,T data) {
+	public ResultMsg(BaseStatusCode status, T data) {
 		this.code = status.getCode();
 		this.msg = status.getMsg();
 		this.data = data;
@@ -40,7 +42,7 @@ public class ResultMsg<T> implements Serializable {
 	 * @return
 	 */
 	public static<T> ResultMsg success(T data){
-		return new ResultMsg(ResultStatusBase.SUCESS,data);
+		return new ResultMsg(BaseStatusCode.SUCESS,data);
 	}
 	
 	/**
@@ -48,7 +50,7 @@ public class ResultMsg<T> implements Serializable {
 	 * @return
 	 */
 	public static<T> ResultMsg<T> error(){
-		return new ResultMsg<T>(ResultStatusBase.ERROR);
+		return new ResultMsg<T>(BaseStatusCode.ERROR);
 	}
 	
 	/**
@@ -57,7 +59,7 @@ public class ResultMsg<T> implements Serializable {
 	 * @return
 	 */
 	public static<T> ResultMsg<T> error(int code,String errorMsg){
-		ResultStatusBase errorStatus = ResultStatusBase.ERROR;
+		BaseStatusCode errorStatus = BaseStatusCode.ERROR;
 		errorStatus.setCode(code);
 		errorStatus.setMsg(errorMsg);
 		return new ResultMsg<T>(errorStatus);
