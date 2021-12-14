@@ -22,7 +22,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<log4j.version>2.13.0</log4j.version>
+		<log4j.version>2.16.0</log4j.version>
 		<slf4j.version>1.7.26</slf4j.version>
 		<pagehelper.version>1.2.13</pagehelper.version>
 		<fastjson.version>1.2.62</fastjson.version>
