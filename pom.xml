@@ -25,7 +25,7 @@
 		<log4j.version>2.13.0</log4j.version>
 		<slf4j.version>1.7.26</slf4j.version>
 		<pagehelper.version>1.2.13</pagehelper.version>
-		<fastjson.version>1.2.62</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<commonlang.version>3.9</commonlang.version>
 		<!-- ide工具的maven版本太低,重新指定后pom.xml不报unknown的错误 -->
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
